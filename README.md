@@ -142,6 +142,7 @@ Project Implementation Steps
 * Added a **health endpoint (`/health`)** for monitoring and load balancer checks.
 
 bash
+
 python3 app.py
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -152,6 +153,7 @@ python3 app.py
 * Built the Docker image locally.
 
 bash
+
 docker build -t devops-flask-app .
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -162,6 +164,7 @@ docker build -t devops-flask-app .
 * Pushed it to **Docker Hub** for remote deployment.
 
 bash
+
 docker tag devops-flask-app <dockerhub-username>/devops-flask-app
 docker push <dockerhub-username>/devops-flask-app
 
@@ -173,6 +176,7 @@ docker push <dockerhub-username>/devops-flask-app
 * Added project source code and configuration files.
 
 bash
+
 git init
 git add .
 git commit -m "Initial commit"
@@ -191,6 +195,7 @@ git push origin main
 Location:
 
 text
+
 .github/workflows/docker-build.yml
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -209,6 +214,7 @@ Terraform was used to create AWS resources:
 Commands used:
 
 bash
+
 terraform init
 terraform plan
 terraform apply
@@ -221,6 +227,7 @@ terraform apply
 * The container runs the Flask application.
 
 bash
+
 docker run -d -p 5000:5000 <dockerhub-username>/devops-flask-app
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -231,6 +238,7 @@ docker run -d -p 5000:5000 <dockerhub-username>/devops-flask-app
 * Health check endpoint used:
 
 text
+
 /health
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -257,6 +265,7 @@ Monitoring tools deployed using **Docker Compose**:
 Start monitoring stack:
 
 bash
+
 docker compose up -d
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -289,6 +298,7 @@ Created alert rules for:
 Example rule:
 
 yaml
+
 alert: HighCPUUsage
 expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
 for: 1m
@@ -309,4 +319,5 @@ The project delivers a **complete DevOps workflow** including:
 * Containerized deployment
 * Load balancing and auto scaling
 * Monitoring and alerting
+
 
