@@ -166,6 +166,7 @@ docker build -t devops-flask-app .
 bash
 
 docker tag devops-flask-app <dockerhub-username>/devops-flask-app
+
 docker push <dockerhub-username>/devops-flask-app
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -178,8 +179,11 @@ docker push <dockerhub-username>/devops-flask-app
 bash
 
 git init
+
 git add .
+
 git commit -m "Initial commit"
+
 git push origin main
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -216,7 +220,9 @@ Commands used:
 bash
 
 terraform init
+
 terraform plan
+
 terraform apply
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -300,7 +306,9 @@ Example rule:
 yaml
 
 alert: HighCPUUsage
+
 expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+
 for: 1m
 
 
@@ -319,5 +327,6 @@ The project delivers a **complete DevOps workflow** including:
 * Containerized deployment
 * Load balancing and auto scaling
 * Monitoring and alerting
+
 
 
