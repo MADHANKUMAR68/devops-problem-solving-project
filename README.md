@@ -35,15 +35,15 @@ Prometheus + Node Exporter + cAdvisor
 
 ---
 
-# TECH STACK
+## TECH STACK
 
-Cloud
+### Cloud
 
 * AWS EC2
 * AWS Application Load Balancer
 * AWS Auto Scaling Group
 
-Infrastructure as Code
+### Infrastructure as Code
 
 * Terraform
 
@@ -136,7 +136,7 @@ Alerts help detect issues quickly in production environments.
 
 Project Implementation Steps
 
-1. Create the Application
+### 1. Create the Application
 
 * Developed a simple **Python Flask web application**.
 * Added a **health endpoint (`/health`)** for monitoring and load balancer checks.
@@ -146,7 +146,7 @@ python3 app.py
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2. Containerize the Application
+### 2. Containerize the Application
 
 * Created a **Dockerfile** to containerize the Flask application.
 * Built the Docker image locally.
@@ -156,7 +156,7 @@ docker build -t devops-flask-app .
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-3. Push Image to Docker Hub
+### 3. Push Image to Docker Hub
 
 * Tagged the Docker image.
 * Pushed it to **Docker Hub** for remote deployment.
@@ -167,7 +167,7 @@ docker push <dockerhub-username>/devops-flask-app
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-4. Setup GitHub Repository
+### 4. Setup GitHub Repository
 
 * Created a GitHub repository.
 * Added project source code and configuration files.
@@ -180,7 +180,7 @@ git push origin main
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-5. Configure CI/CD with GitHub Actions
+### 5. Configure CI/CD with GitHub Actions
 
 * Created a **GitHub Actions workflow** to automate:
 
@@ -195,7 +195,7 @@ text
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-6. Provision AWS Infrastructure using Terraform
+### 6. Provision AWS Infrastructure using Terraform
 
 Terraform was used to create AWS resources:
 
@@ -215,7 +215,7 @@ terraform apply
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-7. Deploy Application on EC2
+### 7. Deploy Application on EC2
 
 * EC2 instances automatically pull the Docker image.
 * The container runs the Flask application.
@@ -225,7 +225,7 @@ docker run -d -p 5000:5000 <dockerhub-username>/devops-flask-app
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-8. Configure Application Load Balancer
+### 8. Configure Application Load Balancer
 
 * ALB distributes traffic across EC2 instances.
 * Health check endpoint used:
@@ -235,7 +235,7 @@ text
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-9. Setup Auto Scaling Group
+### 9. Setup Auto Scaling Group
 
 Auto Scaling ensures:
 
@@ -245,7 +245,7 @@ Auto Scaling ensures:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-10. Implement Monitoring Stack
+### 10. Implement Monitoring Stack
 
 Monitoring tools deployed using **Docker Compose**:
 
@@ -261,7 +261,7 @@ docker compose up -d
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-11. Configure Grafana Dashboards
+### 11. Configure Grafana Dashboards
 
 * Connected Grafana to Prometheus as a data source.
 * Imported dashboards:
@@ -278,7 +278,7 @@ Metrics visualized:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-12. Configure Prometheus Alerts
+### 12. Configure Prometheus Alerts
 
 Created alert rules for:
 
@@ -300,7 +300,7 @@ Prometheus → Alerts
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Result
+### Result
 
 The project delivers a **complete DevOps workflow** including:
 
@@ -309,3 +309,4 @@ The project delivers a **complete DevOps workflow** including:
 * Containerized deployment
 * Load balancing and auto scaling
 * Monitoring and alerting
+
